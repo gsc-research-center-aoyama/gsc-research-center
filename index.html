@@ -510,6 +510,25 @@
                 gap: 10px;
             }
         }
+                .project-summary {
+            display: none;
+            margin-top: 15px;
+            padding: 15px 20px;
+            background: var(--bg-light);
+            border-left: 3px solid var(--accent-green);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        .project-summary.open {
+            display: block;
+        }
+
+        .project-summary-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -598,9 +617,13 @@
                     </div>
                     <div class="project-list">
                         <div class="project-item has-link">
-                            <div class="project-title">海外大学院進学までの卒業生指導成果及び経験集約のための調査研究（その6）</div>
+                            <div class="project-title" onclick="toggleSummary(this)">海外大学院進学までの卒業生指導成果及び経験集約のための調査研究（その6）</div>
                             <div class="project-researcher">村上広史</div>
+                           <div class="project-summary">
+    <p class="project-summary-label">成果概要</p>
+    <p>本調査研究では、地球社会共生学部卒業生4名に対する海外大学院進学指導を通して得られた知見を集約し、報告書としてまとめた。4名のうち3名は前年度に学部を卒業したばかりの学生であり、海外大学院進学準備のために必要となる、大学院での授業内容やリーディングリストの事前調査方法、実際の授業への対策、そして小論文対策に関する指導を通して、大学院進学時のハードルを下げるために役立つ指導法の検討を行った。また、残りの1名は、社会人を5年ほど経験した卒業生に対して、新たに海外大学院進学を実現するために大学院への願書に必要なエッセイの指導などを通して、社会人経験者に対する指導法の検討を行った。これらの検討結果は報告書としてまとめ、卒業生だけでなく現役学生の今後の進学準備のために活用していく。</p> 
                     　  </div>
+                        </div>    
                         <div class="project-item has-link">
                             <div class="project-title">【継続】STEAM教育教材を用いた教育効果に関する研究</div>
                             <div class="project-researcher">林拓也</div>
@@ -968,6 +991,9 @@
         function toggleYear(header) {
             header.classList.toggle('collapsed');
             header.nextElementSibling.classList.toggle('collapsed');
+        }
+                function toggleSummary(title) {
+            title.parentElement.querySelector('.project-summary').classList.toggle('open');
         }
     </script>
 </body>
